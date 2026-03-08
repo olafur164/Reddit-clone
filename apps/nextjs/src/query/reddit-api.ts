@@ -27,7 +27,7 @@ export const getSubreddit = async (subreddit: string, options: { after?: string 
   const queryParams = params.toString().length > 0 ? `?${params.toString()}` : '';
 
   const response = await fetch(
-    `${getBaseUrl()}/api/reddit/r/${subreddit}.json${queryParams}`, { "mode": "no-cors" }
+    `${getBaseUrl()}/api/reddit/r/${subreddit}.json${queryParams}`,
   );
   const responseData = (await response.json()) as SubredditListing;
   return responseData;
@@ -44,7 +44,7 @@ export const getPostComments = async (
     params.toString().length > 0 ? `?${params.toString()}` : "";
 
   const response = await fetch(
-    `${getBaseUrl()}/r/${subreddit}/comments/${postId}.json${queryParams}`,
+    `${getBaseUrl()}/api/reddit/r/${subreddit}/comments/${postId}.json${queryParams}`,
   );
   const responseData = (await response.json()) as PostWithComments;
   return responseData;
@@ -66,7 +66,7 @@ export const getPostMoreComments = async (
 ): Promise<PostWithComments> => {
 
   const response = await fetch(
-    `${getBaseUrl()}/r/${subreddit}/comments/${postId}/comment/${commentId}.json`, { "mode": "no-cors" }
+    `${getBaseUrl()}/api/reddit/r/${subreddit}/comments/${postId}/comment/${commentId}.json`,
   );
   const responseData = (await response.json()) as PostWithComments;
   return responseData;
