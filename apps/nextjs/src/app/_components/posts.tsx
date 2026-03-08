@@ -215,13 +215,13 @@ export function Post({
         {post.selftext ? (
           <p className="mt-2 text-sm whitespace-pre-line">{post.selftext}</p>
         ) : null}
+
+        <div className="text-muted-foreground flex flex-row items-start gap-1 text-right text-xs">
+          <span>{post.ups} upvotes</span>
+          <span>{post.num_comments} comments</span>
+        </div>
       </div>
-      <CommentTree
-        things={rootThings}
-        postId={postId}
-        commentId={postId}
-        level={0}
-      />
+      <CommentTree things={rootThings} postId={postId} level={0} />
     </div>
   );
 }
@@ -281,7 +281,6 @@ function CommentNode({ commentThing, postId, level }: CommentNodeProps) {
     nested = (
       <CommentTree
         things={comment.replies.data.children}
-        commentId={comment.id}
         postId={postId}
         level={level + 1}
       />
