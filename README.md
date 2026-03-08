@@ -1,5 +1,12 @@
 # Reddit clone
 
+## Helstu tól og libs
+
+- Nextjs
+- Tailwind
+- ShadCN
+- Turbo
+
 Ástæðan fyrir að ég nota NextJS og Turbo er bara að ég er vanur að setja upp slíkt umhverfi og er fljótur að því.
 
 Þessi clone er frekar einfaldur en mesta vinnan er í post.tsx undir apps/nextjs/src/app/\_components/post.tsx
@@ -19,7 +26,8 @@ Notaðist við claude ai til að generate-a reddit-types.tsx fyrir mig.
 - Með meiri tíma þá myndi ég eflaust gera ui-ið eitthvað meira næs, icons og fleira í þeim dúr, en ég myndi eflaust alltaf halda í eigin stíl frekar en að herma eftir útlitinu á reddit.
 - Luxon notast við INTL og það er gallað í íslensku en gæti lagað það með polyfill eða láta serverinn rendera alltaf dates(sem er eflaust aðeins meiri vinna en að polyfilla)
 - Ég myndi aðeins hreinsa í post.tsx og hafa í fleiri fælum en þessum eina til þess að gefa betri lesanleika.
-- RedditMore í posts.tsx implementa þannig að það sé hægt að sækja comments sem eru out of depth.
+- RedditMore í posts.tsx implementa þannig að það sé hægt að sækja comments sem eru out of depth. Gerði fetch fn fyrir það getPostMoreComments en ekki búinn að klára implmentationið.
+- Með meiri tíma þá myndi ég eflaust bæta navigation og leit og svona á hin ýmsu subreddits
 
 ## Getting started
 
