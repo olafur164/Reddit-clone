@@ -19,6 +19,7 @@ async function proxy(request: NextRequest, { params }: RouteContext<'/api/reddit
         },
         body: request.method !== 'GET' ? await request.text() : undefined,
     })
+    console.log('response body', response.body)
 
     const data = await response.json()
     return NextResponse.json(data, { status: response.status })
