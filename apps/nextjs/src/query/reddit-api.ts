@@ -6,7 +6,6 @@ import type {
   SubredditListing,
 } from "~/reddit-types";
 import { getBaseUrl } from "./react";
-import { headers } from "next/headers";
 
 function setSearchParams(
   params: Record<string, string | number | boolean | null | undefined>
