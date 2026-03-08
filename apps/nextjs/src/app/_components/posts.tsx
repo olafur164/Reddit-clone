@@ -135,7 +135,7 @@ export function PostCard(props: { post: RedditPostData }) {
     props.post.created_utc,
   ).toRelative({ locale: "en" });
   return (
-    <a
+    <Link
       href={`/r/${props.post.subreddit}/comments/${props.post.id}`}
       className="bg-muted flex flex-col rounded-lg p-4"
     >
@@ -151,7 +151,7 @@ export function PostCard(props: { post: RedditPostData }) {
         <span>{props.post.ups} upvotes</span>
         <span>{props.post.num_comments} comments</span>
       </div>
-    </a>
+    </Link>
   );
 }
 
