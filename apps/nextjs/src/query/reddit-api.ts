@@ -30,7 +30,6 @@ export const getSubreddit = async (subreddit: string, options: { after?: string 
   const response = await fetch(
     `${getBaseUrl()}/r/${subreddit}.json${queryParams}`,
     {
-      mode: 'no-cors',
       headers: {
         'Access-Control-Allow-Origin': '*'
       },
@@ -53,7 +52,6 @@ export const getPostComments = async (
   const response = await fetch(
     `${getBaseUrl()}/r/${subreddit}/comments/${postId}.json${queryParams}`,
     {
-      mode: 'no-cors',
       headers: {
         'Access-Control-Allow-Origin': '*'
       },
