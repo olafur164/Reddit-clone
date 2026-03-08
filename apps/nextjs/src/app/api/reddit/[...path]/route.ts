@@ -23,6 +23,7 @@ async function proxy(request: NextRequest, { params }: RouteContext<'/api/reddit
         ? `${API_BASE}/${path}?${searchParams}`
         : `${API_BASE}/${path}`
 
+    console.log(url)
     const response = await fetch(url, {
         method: request.method,
         headers: {
@@ -31,6 +32,9 @@ async function proxy(request: NextRequest, { params }: RouteContext<'/api/reddit
         next: { revalidate: 60 }, // Cache for 60 seconds
         body: request.method !== 'GET' ? await request.text() : undefined,
     })
+
+    console.log('response', response)
+    console.log('response body', response.body)
 
 
     if (!response.ok) {
