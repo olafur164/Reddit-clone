@@ -28,11 +28,6 @@ export const getSubreddit = async (subreddit: string, options: { after?: string 
 
   const response = await fetch(
     `${getBaseUrl()}/r/${subreddit}.json${queryParams}`,
-    {
-      headers: {
-        'Access-Control-Allow-Origin': '*'
-      },
-    }
   );
   const responseData = (await response.json()) as SubredditListing;
   return responseData;
@@ -50,11 +45,6 @@ export const getPostComments = async (
 
   const response = await fetch(
     `${getBaseUrl()}/r/${subreddit}/comments/${postId}.json${queryParams}`,
-    {
-      headers: {
-        'Access-Control-Allow-Origin': '*'
-      },
-    }
   );
   const responseData = (await response.json()) as PostWithComments;
   return responseData;
