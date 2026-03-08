@@ -6,6 +6,7 @@ import type {
   SubredditListing,
 } from "~/reddit-types";
 import { getBaseUrl } from "./react";
+import { headers } from "next/headers";
 
 function setSearchParams(
   params: Record<string, string | number | boolean | null | undefined>
@@ -28,7 +29,12 @@ export const getSubreddit = async (subreddit: string, options: { after?: string 
 
   const response = await fetch(
     `${getBaseUrl()}/r/${subreddit}.json${queryParams}`,
-    { mode: 'no-cors' }
+    {
+      mode: 'no-cors',
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      },
+    }
   );
   const responseData = (await response.json()) as SubredditListing;
   return responseData;
@@ -46,7 +52,12 @@ export const getPostComments = async (
 
   const response = await fetch(
     `${getBaseUrl()}/r/${subreddit}/comments/${postId}.json${queryParams}`,
-    { mode: 'no-cors' }
+    {
+      mode: 'no-cors',
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      },
+    }
   );
   const responseData = (await response.json()) as PostWithComments;
   return responseData;
