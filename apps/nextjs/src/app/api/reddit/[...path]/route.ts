@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server'
 
-const API_BASE = 'https://www.old.reddit.com/'
+const API_BASE = 'https://www.reddit.com/'
 
 
 const CORS_HEADERS = {
