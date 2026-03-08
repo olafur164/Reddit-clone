@@ -16,12 +16,18 @@ async function proxy(request: NextRequest, { params }: RouteContext<'/api/reddit
         method: request.method,
         headers: {
             'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
         },
         body: request.method !== 'GET' ? await request.text() : undefined,
     })
 
     const data = await response.json()
-    return NextResponse.json(data, { status: response.status })
+    return NextResponse.json(data, {
+        status: response.status,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        },
+    })
 }
 
 export const GET = proxy;

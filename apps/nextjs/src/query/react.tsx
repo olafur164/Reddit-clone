@@ -29,11 +29,6 @@ export function ReactQueryProvider(props: { children: React.ReactNode }) {
 }
 
 export const getBaseUrl = () => {
-  if (
-    typeof window !== "undefined" &&
-    !window.location.origin.includes("localhost")
-  )
-    return "https://reddit.com/";
   if (typeof window !== "undefined") return window.location.origin;
   if (env.VERCEL_URL) return `https://${env.VERCEL_URL}/api/reddit`;
   // eslint-disable-next-line no-restricted-properties
