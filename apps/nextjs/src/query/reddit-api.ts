@@ -44,7 +44,7 @@ export const getPostComments = async (
     params.toString().length > 0 ? `?${params.toString()}` : "";
 
   const response = await fetch(
-    `${getBaseUrl()}/api/reddit/r/${subreddit}/comments/${postId}.json${queryParams}`,
+    `${getBaseUrl()}/r/${subreddit}/comments/${postId}.json${queryParams}`,
   );
   const responseData = (await response.json()) as PostWithComments;
   return responseData;
@@ -66,7 +66,7 @@ export const getPostMoreComments = async (
 ): Promise<PostWithComments> => {
 
   const response = await fetch(
-    `${getBaseUrl()}/api/reddit/r/${subreddit}/comments/${postId}/comment/${commentId}.json`,
+    `${getBaseUrl()}/r/${subreddit}/comments/${postId}/comment/${commentId}.json`,
   );
   const responseData = (await response.json()) as PostWithComments;
   return responseData;
