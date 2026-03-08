@@ -33,7 +33,7 @@ export const getBaseUrl = () => {
     typeof window !== "undefined" &&
     !window.location.href.includes("localhost")
   )
-    return "https://reddit.com/";
+    return "https://www.reddit.com";
   if (typeof window !== "undefined") return window.location.origin;
   if (env.VERCEL_URL) return `https://${env.VERCEL_URL}/api/reddit`;
   // eslint-disable-next-line no-restricted-properties
