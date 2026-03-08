@@ -9,6 +9,8 @@ import { ReactQueryProvider } from "~/query/react";
 
 import "~/app/styles.css";
 
+import PlausibleProvider from "next-plausible";
+
 import { OfflineMessage } from "./_components/OfflineMessage";
 
 export const metadata: Metadata = {
@@ -34,6 +36,9 @@ const geistMono = Geist_Mono({
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <PlausibleProvider domain="reddit-clone-nextjs-six.vercel.app" />
+      </head>
       <body
         className={cn(
           "bg-background text-foreground min-h-screen font-sans antialiased",

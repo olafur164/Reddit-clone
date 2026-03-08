@@ -19,6 +19,7 @@
     "@tanstack/react-query": "catalog:",
     "luxon": "^3.7.2",
     "next": "^16.1.6",
+    "next-plausible": "^3.12.5",
     "react": "catalog:react19",
     "react-dom": "catalog:react19",
     "react-intersection-observer": "^10.0.3",
