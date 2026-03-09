@@ -31,7 +31,6 @@ async function proxy(request: NextRequest, { params }: RouteContext<'/api/reddit
         next: { revalidate: 60 }, // Cache for 60 seconds
         body: request.method !== 'GET' ? await request.text() : undefined,
     })
-    console.log('response body', response.body)
 
     if (!response.ok) {
         return NextResponse.json(

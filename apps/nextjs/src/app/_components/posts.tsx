@@ -100,7 +100,6 @@ export function PostList({ subreddit }: { subreddit: string }) {
       </div>
     );
   }
-  console.log("data", data);
   return (
     <div className="flex w-full flex-col gap-4">
       {data.pages.map((page) => (
@@ -299,13 +298,17 @@ export function CommentCard(props: {
   comment: RedditCommentData;
   postId: string;
 }) {
+  const isOP = props.comment.is_submitter;
   return (
     <div className="bg-muted flex flex-col rounded-lg p-4">
       <div className="grow">
-        <div className="flex items-baseline gap-2">
+        <div className="flex items-baseline items-center gap-2">
           <h2 className="text-primary text-base font-semibold">
             {props.comment.author}
           </h2>
+          {isOP ? (
+            <span className="text-xs font-semibold text-blue-500">OP</span>
+          ) : null}
           <span className="text-muted-foreground text-xs">
             {DateTime.fromSeconds(props.comment.created_utc).toRelative()}
           </span>
